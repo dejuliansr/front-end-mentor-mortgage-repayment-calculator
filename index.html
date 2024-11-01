@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/font.css">
+  <title>Frontend Mentor | Mortgage Repayment Calculator</title>
+</head>
+<body>
+  <main class="bg-Slate/100 flex items-center justify-center min-h-screen">
+    <div class="bg-white lg:rounded-3xl shadow-lg flex flex-col md:flex-row overflow-hidden max-w-4xl w-full">
+      
+      <!-- Left Side: Calculator Form -->
+      <div class="md:w-1/2 w-full p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold text-slate-700">
+            Mortgage Calculator
+          </h1>
+          <a class="text-sm text-Slate/500 underline cursor-pointer" onclick="clearAll()">
+            Clear All
+          </a>
+        </div>
+        
+        <form>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-1 text-Slate/500">Mortgage Amount</label>
+            <div class="flex items-center border border-solid border-Slate/300 invalid:border-red-500 rounded-md">
+              <span class="px-3 py-2 bg-Slate/100 text-Slate/500 font-bold">£</span>
+              <input id="amount" type="number" class="w-full p-2 border-none">
+            </div>
+            <p id="amountError" class="text-red-500 text-xs mt-1 hidden">This field required</p>
+          </div>
+
+          <div class="flex gap-4 mb-4">
+            <div class="w-1/2">
+              <label class="block text-sm font-medium mb-1 text-Slate/500">Mortgage Term</label>
+              <div class="flex items-center border border-solid border-Slate/300 rounded-md">
+                <input id="term" type="number" class="w-full p-2 border-none">
+                <span class="px-3 py-2 bg-Slate/100 text-Slate/500 font-bold">years</span>
+              </div>
+              <p id="termError" class="text-red-500 text-xs mt-1 hidden">This field required</p>
+            </div>
+            <div class="w-1/2">
+              <label class="block text-sm font-medium mb-1 text-Slate/500">Interest Rate</label>
+              <div class="flex items-center border border-solid border-Slate/300 rounded-md">
+                <input id="rate" type="number" class="w-full p-2 border-none" step="0.01">
+                <span class="px-3 py-2 bg-Slate/100 text-Slate/500 font-bold">%</span>
+              </div>
+              <p id="rateError" class="text-red-500 text-xs mt-1 hidden">This field required</p>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-sm font-medium mb-1 text-Slate/500">Mortgage Type</label>
+            <div class="border border-solid border-Slate/300 p-2 rounded-md mb-2 mortgage-option">
+                <label class="flex items-center">
+                    <input type="radio" name="mortgageType" value="repayment" class="form-radio text-blue-500">
+                    <span class="custom-radio"></span> <!-- Elemen kustom untuk radio button -->
+                    <span class="ml-2 font-bold text-slate-900 w-full">Repayment</span>
+                </label>
+            </div>
+            <div class="border border-solid border-Slate/300 p-2 rounded-md mortgage-option">
+                <label class="flex items-center">
+                    <input type="radio" name="mortgageType" value="interest-only" class="form-radio text-blue-500">
+                    <span class="custom-radio"></span> <!-- Elemen kustom untuk radio button -->
+                    <span class="ml-2 font-bold text-slate-900">Interest Only</span>
+                </label>
+            </div>
+            <p id="typeError" class="text-red-500 text-xs mt-1 hidden">This field required</p>
+        </div>
+
+          <button type="button" onclick="calculateMortgage(event)" class="w-full flex justify-center py-3 text-slate-900 font-bold bg-Lime rounded-full hover:bg-Lime">
+            <img src="./assets/images/icon-calculator.svg" alt="">
+            Calculate Repayments
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Side: Results Display -->
+      <div id="rightSide" class="md:w-1/2 w-full bg-Slate/900 lg:rounded-bl-[5rem] text-white p-8 flex flex-col items-center justify-center">
+        <img src="./assets/images/illustration-empty.svg" alt="Calculation Illustration" class="mb-4">
+        <h3 class="text-xl font-semibold mb-2">Results shown here</h3>
+        <p class="text-center text-sm">
+          Complete the form and click "calculate repayments" to see what your monthly repayments would be.
+        </p>
+        <div id="result" class="mt-4 text-lg font-bold"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/index.js"></script>
+  
+</body>
+</html>

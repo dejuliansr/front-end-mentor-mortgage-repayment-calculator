@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+#amount:focus, #term:focus, #rate:focus {
+  outline: none;
+}
+
+.input-active {
+  border: solid 2px hsl(61, 70%, 52%);
+}
+
+.span-active {
+  background-color: hsl(61, 70%, 52%);
+}
+
+/* Error */
+.input-error {
+  border: solid 2px hsl(4, 69%, 50%);
+}
+.span-error {
+  background-color: hsl(4, 69%, 50%);
+  color: #fff;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + .custom-radio {
+  border-color: hsl(61, 70%, 52%);
+}
+
+input[type="radio"]:checked + .custom-radio::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.mortgage-option.selected {
+  background-color: hsl(61, 100%, 89%);
+  border: solid 2px hsl(61, 70%, 52%);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
